@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Clinical Risk Dashboard</title>
+    <style>
+        body { font-family: Arial; background: #f4f6f9; padding: 20px; }
+        h1 { color: #1f2937; }
+        .card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<h1>AI Clinical Risk Monitoring</h1>
+
+<div class="card">
+    <h2>System Stats</h2>
+    <div id="stats"></div>
+</div>
+
+<div class="card">
+    <h2>Recent Predictions</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Risk Probability</th>
+                <th>Prediction</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody id="logs"></tbody>
+    </table>
+</div>
+
+<script>
+async function loadData() {
+    const stats = await fetch("/stats").then(r => r.json());
+    const logs = await fetch("/logs?limit=5").then(r => r.json());
+
+    document.getElementById("stats").innerHTML = `
+        Total Predictions: ${stats.total_predictions}<br>
+        High Risk Rate: ${(stats.high_risk_rate * 100).toFixed(2)}%<br>
+        Avg Risk Probability: ${stats.avg_risk_probability.toFixed(3)}
+    `;
+
+    const logRows = logs.map(l => `
+        <tr>
+            <td>${l.id}</td>
+            <td>${l.risk_probability.toFixed(3)}</td>
+            <td>${l.prediction}</td>
+            <td>${l.created_at}</td>
+        </tr>
+    `).join("");
+
+    document.getElementById("logs").innerHTML = logRows;
+}
+
+loadData();
+setInterval(loadData, 5000);
+</script>
+
+</body>
+</html>
