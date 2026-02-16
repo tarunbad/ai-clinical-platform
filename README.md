@@ -1,11 +1,3 @@
-YES BRUH 🔥
-Copy everything below and paste directly into your `README.md` file.
-
-It’s clean, structured, and professional.
-
----
-
-```markdown
 # 🏥 AI Clinical Readmission Risk Platform
 
 A production-oriented machine learning system that predicts 30-day hospital readmission risk using structured clinical data.
@@ -37,21 +29,18 @@ This project addresses the full ML lifecycle.
 ---
 
 ## 🏗 System Architecture
-
 ```
-
 Client
-↓
+  ↓
 FastAPI (Prediction API)
-↓
+  ↓
 XGBoost Pipeline (Preprocessing + Model)
-↓
+  ↓
 PostgreSQL (Prediction Logging)
-↓
+  ↓
 Prometheus (Metrics Scraping)
-↓
+  ↓
 Grafana (Monitoring Dashboard)
-
 ```
 
 Fully containerized using Docker Compose.
@@ -84,13 +73,7 @@ Fully containerized using Docker Compose.
 | `/stats` | Aggregated system statistics |
 | `/metrics` | Prometheus metrics endpoint |
 
-Swagger Docs available at:
-
-```
-
-[http://localhost:8000/docs](http://localhost:8000/docs)
-
-```
+Swagger Docs available at: [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ---
 
@@ -109,42 +92,30 @@ These are visualized in Grafana dashboards:
 - Model probability trends
 - System health
 
-Prometheus:
-```
+Prometheus: [http://localhost:9090](http://localhost:9090)
 
-[http://localhost:9090](http://localhost:9090)
-
-```
-
-Grafana:
-```
-
-[http://localhost:3000](http://localhost:3000)
-
-````
+Grafana: [http://localhost:3000](http://localhost:3000)
 
 ---
 
 ## 🐳 Deployment (Local)
 
 Clone the repository:
-
 ```bash
 git clone https://github.com/YOUR_USERNAME/ai-clinical-platform.git
 cd ai-clinical-platform
-````
+```
 
 Run the full stack:
-
 ```bash
 docker compose up --build
 ```
 
 Services:
 
-* API → [http://localhost:8000](http://localhost:8000)
-* Prometheus → [http://localhost:9090](http://localhost:9090)
-* Grafana → [http://localhost:3000](http://localhost:3000)
+- API → [http://localhost:8000](http://localhost:8000)
+- Prometheus → [http://localhost:9090](http://localhost:9090)
+- Grafana → [http://localhost:3000](http://localhost:3000)
 
 ---
 
@@ -152,11 +123,11 @@ Services:
 
 All predictions are logged in PostgreSQL:
 
-* Request payload
-* Risk probability
-* Classification
-* Timestamp
-* Explainability output (if available)
+- Request payload
+- Risk probability
+- Classification
+- Timestamp
+- Explainability output (if available)
 
 This simulates real-world audit and compliance requirements in healthcare AI systems.
 
@@ -166,8 +137,8 @@ This simulates real-world audit and compliance requirements in healthcare AI sys
 
 Each prediction can optionally return:
 
-* Top risk-increasing features
-* Top risk-decreasing features
+- Top risk-increasing features
+- Top risk-decreasing features
 
 Powered by SHAP for local interpretability.
 
@@ -177,12 +148,12 @@ Powered by SHAP for local interpretability.
 
 This project emphasizes:
 
-* Production-ready ML systems
-* Model observability
-* Logging & auditability
-* Infrastructure integration
-* Containerization
-* Monitoring dashboards
+- Production-ready ML systems
+- Model observability
+- Logging & auditability
+- Infrastructure integration
+- Containerization
+- Monitoring dashboards
 
 It mirrors how ML systems operate in real healthcare environments.
 
@@ -190,33 +161,33 @@ It mirrors how ML systems operate in real healthcare environments.
 
 ## 🛠 Tech Stack
 
-* Python
-* FastAPI
-* XGBoost
-* Scikit-learn
-* SHAP
-* PostgreSQL
-* Prometheus
-* Grafana
-* Docker / Docker Compose
+- Python
+- FastAPI
+- XGBoost
+- Scikit-learn
+- SHAP
+- PostgreSQL
+- Prometheus
+- Grafana
+- Docker / Docker Compose
 
 ---
 
 ## 👨‍💻 Author
 
-**Tarun Badana**
-MS Computer Science
+**Tarun Badana**  
+MS Computer Science  
 University at Buffalo
 
 ---
 
 ## 🔮 Future Improvements
 
-* Cloud deployment (AWS / GCP)
-* CI/CD pipeline
-* Model drift detection
-* Authentication & role-based access
-* Batch inference pipeline
+- Cloud deployment (AWS / GCP)
+- CI/CD pipeline
+- Model drift detection
+- Authentication & role-based access
+- Batch inference pipeline
 
 ---
 
